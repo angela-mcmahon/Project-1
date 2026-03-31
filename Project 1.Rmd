@@ -13,6 +13,7 @@ library(tidyverse)
 library(readr)
 library(ggplot2)
 
+
 ```
 
 ## Introduction 
@@ -24,7 +25,7 @@ To load our data set, the table was translated into a CSV and the data was copie
 
 
 ```{r}
-WNBA_2016_stats <- read_csv("Player,Team,Pos,G2,MP2,G,GS,MP,FG,FGA,FGP,3P,3PA,3PP,2P,2PA,2PP,FT,FTA,FTP,ORB,TRB,AST,STL,BLK,TOV,PF,PTS
+WNBA_2016_stats <- read_csv("Player,Team,Pos,G2,MP2,G,GS,MP,FG,FGA,FGP,ThPt,ThPtA,ThPtP,TwoPt,TwoPtA,TwoPtP,FT,FTA,FTP,ORB,TRB,AST,STL,BLK,TOV,PF,PTS
 Natalie Achonwa,IND,F,24,195,24,0,195,36,66,.545,0,0,,36,66,.545,14,20,.700,16,47,6,10,1,12,27,86
 Matee Ajavon,ATL,G,32,338,32,2,338,36,118,.305,3,13,.231,33,105,.314,30,40,.750,19,52,38,12,8,33,52,105
 Kayla Alexander,SAS,C,25,489,25,0,489,77,141,.546,0,0,,77,141,.546,46,61,.754,47,113,13,11,13,28,55,200
@@ -212,7 +213,15 @@ Courtney Williams,CON,G,19,326,19,0,326,67,157,.427,8,26,.308,59,131,.450,11,19,
 ```{r}
 WNBA_2016_stats%>%
   ggplot(aes(x=GS)) +
-  geom_bar()
+  geom_bar()+
+  labs(x="Games Started")
+
+WNBA_2016_stats%>%
+  summarize(
+    Avg_Started = mean(GS),
+    StDev_Started = sd(GS),
+  )%>% kable()
+
 
 ```
 
@@ -223,14 +232,18 @@ WNBA_2016_stats%>%
 ```{r}
 WNBA_2016_stats%>%
   ggplot(aes(x=FGP)) +
-  geom_density() 
+  geom_density()+
+  labs(x="Field Goal Percentage")
 ```
 
 
 ### var 3 
 #assists 
 ```{r}
-
+WNBA_2016_stats%>%
+  ggplot(aes(x=AST))+
+  geom_histogram(binwidth=5)+
+  labs(x="Assists")
 ```
 
 
@@ -241,7 +254,8 @@ WNBA_2016_stats%>%
 ```{r}
 WNBA_2016_stats%>%
   ggplot(aes(x=Team, y=FTP))+
-  geom_boxplot()
+  geom_boxplot()+
+  labs(x="WNBA Team", y="Free Throw Percentage")
 ```
 
 
@@ -251,7 +265,8 @@ WNBA_2016_stats%>%
 WNBA_2016_stats%>%
   ggplot(aes(x=FTA, y=FT))+
   geom_point(alpha=0.3)+
-  geom_smooth(method="lm")
+  geom_smooth(method="lm")+
+  labs(x="Free Throw Attempts", y="Free Throws Made")
            
 ```
 
@@ -261,7 +276,10 @@ WNBA_2016_stats%>%
 ### 2 quan var and 1 cat 
 #position, 2P, 3P
 ```{r}
-
+WNBA_2016_stats%>%
+  ggplot(aes(x=TwoPt, y= ThPt))+
+  geom_point()+
+  labs(x="Two Point Shots Made", y="Three Point Shots Made")
 ```
 
 
