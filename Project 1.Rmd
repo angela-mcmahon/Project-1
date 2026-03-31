@@ -11,7 +11,20 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(readr)
-WNBA_2016_stats <- read_csv("Player,Team,Pos,G,MP,G2,GS,MP,FG,FGA,FG%,3P,3PA,3P%,2P,2PA,2P%,FT,FTA,FT%,ORB,TRB,AST,STL,BLK,TOV,PF,PTS
+library(ggplot2)
+
+```
+
+## Introduction 
+Our data set is a record of the Woman's NBA stats for 2016. It is the basic stats of each woman's NBA player. This includes their team, position, number of games played and started in, minutes per game, and all shooting stats. They measured the number of free throws, field goals, 2 point, and 3 point attempts each player had along with all made shots and the percentages of these categories. This data set has a sample size of 174 different players. 
+Link to data set: https://www.basketball-reference.com/wnba/years/2016_totals.html 
+
+## Data Import 
+To load our data set, the table was translated into a CSV and the data was copied and pasted. The data was then stored as WNBA_2016_stats. There was 2 variables which has duplicate columns, these were Games (G) and Minutes Played (MP). The duplicate column was removed from the data. The columns for shooting percentages used the symbol which R does not accommodate. Those percentage symbols were changed into P's. 
+
+
+```{r}
+WNBA_2016_stats <- read_csv("Player,Team,Pos,G2,MP2,G,GS,MP,FG,FGA,FGP,3P,3PA,3PP,2P,2PA,2PP,FT,FTA,FTP,ORB,TRB,AST,STL,BLK,TOV,PF,PTS
 Natalie Achonwa,IND,F,24,195,24,0,195,36,66,.545,0,0,,36,66,.545,14,20,.700,16,47,6,10,1,12,27,86
 Matee Ajavon,ATL,G,32,338,32,2,338,36,118,.305,3,13,.231,33,105,.314,30,40,.750,19,52,38,12,8,33,52,105
 Kayla Alexander,SAS,C,25,489,25,0,489,77,141,.546,0,0,,77,141,.546,46,61,.754,47,113,13,11,13,28,55,200
@@ -185,11 +198,73 @@ Lindsey Harding,PHO,G,21,329,21,0,329,30,81,.370,2,5,.400,28,76,.368,20,23,.870,
 Whitney Knight,SAS,G,3,11,3,0,11,0,5,.000,0,4,.000,0,1,.000,0,0,,0,2,1,0,0,0,2,0
 Noelle Quinn,SEA,G,20,278,20,0,278,15,52,.288,1,12,.083,14,40,.350,5,5,1.000,1,35,32,9,2,19,16,36
 Avery Warley-Talbert,SAS,C,2,11,2,0,11,0,1,.000,0,0,,0,1,.000,0,0,,1,2,1,0,1,0,0,0
-Courtney Williams,CON,G,19,326,19,0,326,67,157,.427,8,26,.308,59,131,.450,11,19,.579,27,69,28,12,3,19,29,153")
+Courtney Williams,CON,G,19,326,19,0,326,67,157,.427,8,26,.308,59,131,.450,11,19,.579,27,69,28,12,3,19,29,153")%>% select(-G2, -MP2)
 ```
 
+
+
+
+## Univariate Data 
+
+### var 
+#games started 
 
 ```{r}
-WNBA_2016_stats
+WNBA_2016_stats%>%
+  ggplot(aes(x=GS)) +
+  geom_bar()
+
 ```
+
+
+### var 2 
+#fg percentage 
+
+```{r}
+WNBA_2016_stats%>%
+  ggplot(aes(x=FGP)) +
+  geom_density() 
+```
+
+
+### var 3 
+#assists 
+```{r}
+
+```
+
+
+## Bivariate Data 
+
+### quan var and cat var 
+# each team - avg ft percentage 
+```{r}
+WNBA_2016_stats%>%
+  ggplot(aes(x=Team, y=FTP))+
+  geom_boxplot()
+```
+
+
+### quan var  and quan var  
+#free throw att vs made 
+```{r}
+WNBA_2016_stats%>%
+  ggplot(aes(x=FTA, y=FT))+
+  geom_point(alpha=0.3)+
+  geom_smooth(method="lm")
+           
+```
+
+
+## Trivariate Data 
+
+### 2 quan var and 1 cat 
+#position, 2P, 3P
+```{r}
+
+```
+
+
+## Conclusion 
+
 
