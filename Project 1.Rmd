@@ -26,7 +26,6 @@ To load our data set, the table was translated into a CSV and the data was copie
 library(readr)
 WNBA_2016stats <- read_csv("WNBA_2016stats.csv")
 WNBA_2016stats <- WNBA_2016stats%>% select(-G2, -MP2)
-
 ```
 
 
@@ -137,5 +136,7 @@ WNBA_2016stats%>%
 
 The variables two-point shots made, three-point shots made, and position show a weak positive correlation in the first scatterplot. In the facetted scatterplots, we can see the same weak, positive correlation for the Forwards (F), Centers (C), and Guards (G) while the rotating players (F-G/F-C) show an even weaker positive to almost no correlation The first scatterplot we can see again the data is concentrated in the bottom left below 25. However, we can also notice the Guards and Forwards are making the most three point shots in a year. There are multiple outliers towards the top of the graph and a few on the right end as well. The faceted scatterplots support the conclusion guards and fowards are making the most 3 point shots. It also shows they are making on average more shots then the centers or rotating players.The center position shows an outlier on the far right, the same as noted earlier. 
 
+
 ## Conclusion 
+
 The Woman's NBA stats for 2016 give lots of insight into the strengths and weaknesses of the teams and players. The data reveals a wide range of key roles of players including the shooting activity of guards and forwards. Over 60 players do not start but are still contibuting in other areas of the game including assists and different types of shots. Shooting percentages and assist numbers highlight both individual skills and teamwork. Both the bivariate and trivariate analyses demonstrate similar ideas. Factors like team, position, and shot selection interact to shape the outcomes on the court. Overall, the data set underscore the diversity of talent in the WBNA and the multifaceted nature of basketball games offering a comprehensive view of the 2016 basketball year.
