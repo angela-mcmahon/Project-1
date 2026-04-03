@@ -85,7 +85,7 @@ summary(WNBA_2016assists) %>%
 
 ```
 
-The last variable examined in the univariate section is player assists in a given year. The histogram depicts the data is skewed to the right. There looks to be one outlier right below 200 assists. 
+The last variable examined in the univariate section is player assists in a given year. The histogram depicts the data is skewed to the right. There is one outlier right below 200 assists. The average number of assists for a WNBA player in 2016 is 42. While the median is 27, supporting the histogram showing a skewed relation. The first quantile is 9 and the third quantile is 66. 
 
 
 ## Bivariate Data 
@@ -108,7 +108,7 @@ WNBA_2016stats%>%
 ```
 
 #A couple of sentences discussing any visible relationship and any additional insights that build on the univariate views of the data.
-
+The two variables examined are WNBA teams and their free throw percentages. In the histogram, almost all teams have players with free throw percentages above 70%. With an exception of CON, while ATL and PHO boarder 70%. There are 6 teams with lower outliers and one with a higher outlier. 
 
 
 ### Number of Free Throw Attmepts and Number Made 
