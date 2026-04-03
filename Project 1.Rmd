@@ -18,7 +18,7 @@ library(knitr)
 ```
 
 ## Introduction 
-Our data set is a record of the Woman's NBA stats for 2016. It is the basic stats of each woman's NBA player. This includes their team, position, number of games played and started in, minutes per game, and all shooting stats. They measured the number of free throws, field goals, 2 point, and 3 point attempts each player had along with all made shots and the percentages of these categories. This data set has a sample size of 174 different players. 
+Our data set is a record of the Woman's NBA player stats for 2016. It is the basic stats of each woman's NBA player. This includes their team, position, number of games played and started in, minutes per game, and all shooting stats. They measured the number of free throws, field goals, 2 point, and 3 point attempts each player had along with all made shots and the percentages of these categories. This data set has a sample size of 174 different players. 
 Link to data set: https://www.basketball-reference.com/wnba/years/2016_totals.html 
 
 ## Data Import 
@@ -68,8 +68,6 @@ summary(WNBA_FGP_2016) %>%
 
 The variable investigated here was player field goal percentage. These were recorded as field goal shots attempted and made then proportioned to find the percentage of shots made. Displayed in the density plot, the peak percentage on average for players is a little over 40%. The first quantile is around 36% and the third is about 48%, this represents 75% of the players average percentage in the data set. There is no extreme outliers present. 
 
-So on average, a player is making less than 50% of the field goal shots they take in a year.
-
 ### Number of Assists 
 
 ```{r}
@@ -108,7 +106,7 @@ WNBA_2016stats%>%
 ```
 
 #A couple of sentences discussing any visible relationship and any additional insights that build on the univariate views of the data.
-The two variables examined are WNBA teams and their free throw percentages. In the histogram, almost all teams have players with free throw percentages above 70%. With an exception of CON, while ATL and PHO boarder 70%. There are 6 teams with lower outliers and one with a higher outlier. 
+The two variables examined are WNBA teams and their free throw percentages. In the histogram, almost all teams have players with free throw percentages above 70%. With an exception of CON, while ATL and PHO boarder 70%. There are 6 teams with lower outliers. This includes ATL, CHI, CON, DAL, IND, and SAS. And one team with a high outlier which was WAS. It is impressive to see almost all WNBA teams are in the 80% range for player free throw percentage. With the standard deviations between 10-17% (0.10-0.17).
 
 
 ### Number of Free Throw Attmepts and Number Made 
@@ -122,11 +120,7 @@ WNBA_2016stats%>%
            
 ```
 
-
-#the correlation between the variables
-#A couple of sentences discussing any visible relationship and any additional insights that build on the univariate views of the data.
-
-
+Player free throw attempts and player free throw shots made have a positive, relatively strong correlation. Most of the points are concentrated between 0 and 25 on both axis. There are four outliers past 175. The strong correlation highly to these players shooting skills as most points are either touching or slightly off of the line of best fit. Although it does not show direct connection to the univariate views, it supports the above conclusions. 
 
 ## Trivariate Data 
 
@@ -147,10 +141,7 @@ WNBA_2016stats%>%
 
 ```
 
-#The correlation between the variables, broken out by the categories
-#A couple of sentences discussing any visible relationship(s) and any additional insights that build on the earlier views of the data.
-
+The variables two-point shots made, three-point shots made, and position show a weak positive correlation in the first scatterplot. In the facetted scatterplots, we can see the same weak, positive correlation for the Forwards (F), Centers (C), and Guards (G) while the rotating players (F-G/F-C) show an even weaker positive to almost no correlation The first scatterplot we can see again the data is concentrated in the bottom left below 25. However, we can also notice the Guards and Forwards are making the most three point shots in a year. There are multiple outliers towards the top of the graph and a few on the right end as well. The faceted scatterplots support the conclusion guards and fowards are making the most 3 point shots. It also shows they are making on average more shots then the centers or rotating players.The center position shows an outlier on the far right, the same as noted earlier. 
 
 ## Conclusion 
-
-
+The Woman's NBA stats for 2016 give lots of insight into the strengths and weaknesses of the teams and players. The data reveals a wide range of key roles of players including the shooting activity of guards and forwards. Over 60 players do not start but are still contibuting in other areas of the game including assists and different types of shots. Shooting percentages and assist numbers highlight both individual skills and the importance of teamwork. Both the bivariate and trivariate analyses demonstrate similar ideas. Factors like team, position, and shot selection interact to shape the outcomes on the court. Overall, the data set underscore the diversity of talent in the WBNA and the multifaceted nature of basketball games offering a comprehensive view of the 2016 basketball year.
